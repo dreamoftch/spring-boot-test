@@ -1,8 +1,10 @@
 package com.tch.test.springboot.controller
 
 import com.tch.test.springboot.mapper.StudentMapper
+import com.tch.test.springboot.model.StudentPO
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.web.bind.annotation.RequestMapping
+import org.springframework.web.bind.annotation.RequestParam
 import org.springframework.web.bind.annotation.RestController
 
 /**
@@ -22,6 +24,11 @@ class MyController {
     @RequestMapping("/countStudent")
     fun countStudent(): Long {
         return studentMapper.count()
+    }
+
+    @RequestMapping("/getById")
+    fun getById(@RequestParam("id") id: Long): StudentPO {
+        return studentMapper.selectByPrimaryKey(id)
     }
 
 }
