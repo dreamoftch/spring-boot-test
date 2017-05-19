@@ -1,5 +1,7 @@
 package com.tch.test.springboot.controller
 
+import com.tch.test.springboot.mapper.StudentMapper
+import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.web.bind.annotation.RequestMapping
 import org.springframework.web.bind.annotation.RestController
 
@@ -9,9 +11,17 @@ import org.springframework.web.bind.annotation.RestController
 @RestController()
 class MyController {
 
+    @Autowired
+    private lateinit var studentMapper: StudentMapper
+
     @RequestMapping("/say")
     fun say(): String {
-        return "你好啊";
+        return "你好啊"
+    }
+
+    @RequestMapping("/countStudent")
+    fun countStudent(): Long {
+        return studentMapper.count()
     }
 
 }
