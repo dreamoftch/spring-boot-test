@@ -18,7 +18,7 @@ class MyController {
 
     @RequestMapping("/say")
     fun say(): String {
-        return "你好啊"
+        return "say hello 9090 <<<<<<<<<<<<<<<<<<<<<<"
     }
 
     @RequestMapping("/countStudent")
